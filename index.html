@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetronix | Player Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>TETRONIX</h1>
+        <nav>
+            <a href="#">LEADERBOARD</a>
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="banner">
+            <div class="banner-text">
+                <h2>BATTLE READY?</h2>
+                <p>THINK FAST. STACK FASTER.</p>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <div class="login-card">
+                <h3>ACCESS PORTAL</h3>
+
+                <form id="loginForm" onsubmit="return validateForm(event)">
+                    <div class="input-group">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                        <input type="email" id="email" placeholder="PLAYER EMAIL" required>
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-key"></i>
+                        <input type="password" id="password" placeholder="PASSWORD" oninput="checkStrength(this.value)" required>
+                        <i class="fa-solid fa-eye toggle-password" onclick="togglePass()"></i>
+                    </div>
+
+                    <ul class="requirements-list" id="reqList">
+                        <li id="len"><i class="fa-solid fa-circle"></i> 8+ Characters</li>
+                        <li id="up"><i class="fa-solid fa-circle"></i> Uppercase Letter</li>
+                        <li id="num"><i class="fa-solid fa-circle"></i> Contains Number</li>
+                        <li id="spec"><i class="fa-solid fa-circle"></i> Special Symbol (@$!%)</li>
+                    </ul>
+
+                    <div class="strength-container" id="strengthContainer">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+
+                    <button type="submit">LOGIN START</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 TETRONIX ENGINE // ALL SYSTEMS OPERATIONAL
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
