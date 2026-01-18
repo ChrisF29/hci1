@@ -77,7 +77,7 @@
     </div>
 
     <footer>
-        &copy; 2026 TETRONIX ENGINE // Chris Ferrer
+        &copy; 2026 TETRONIX ENGINE // CHRIS FERRER
     </footer>
 
     <script src="script.js"></script>
