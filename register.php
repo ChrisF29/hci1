@@ -30,8 +30,8 @@
         </div>
 
         <div class="login-section">
-            <div class="login-card" style="border-color: var(--cyan); box-shadow: 12px 12px 0px rgba(0, 240, 240, 0.15);">
-                <h3 style="color: var(--cyan); text-shadow: 0 0 8px var(--cyan);">REGISTRATION</h3>
+            <div class="login-card" style="border-color: var(--blue); box-shadow: 12px 12px 0px rgba(0, 65, 65, 0.15);">
+                <h3 style="color: var(--blue); text-shadow: 0 0 8px var(--cyan);">REGISTRATION</h3>
 
                 <form id="registerForm" action="register_handler.php" method="POST" onsubmit="return validateForm(event)">
                     
