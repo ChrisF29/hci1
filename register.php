@@ -24,14 +24,14 @@
     <div class="container">
         <div class="banner" style="border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 240, 240, 0.3);">
             <div class="banner-text">
-                <h2 style="color: var(--cyan);">NEW RECRUIT?</h2>
-                <p>ESTABLISH YOUR SECTOR IDENTITY.</p>
+                <h2 style="color: var(--cyan);">NEW PLAYER?</h2>
+                <p>JOIN OTHER PLAYERS NOW.</p>
             </div>
         </div>
 
         <div class="login-section">
             <div class="login-card" style="border-color: var(--cyan); box-shadow: 12px 12px 0px rgba(0, 240, 240, 0.15);">
-                <h3 style="color: var(--cyan); text-shadow: 0 0 8px var(--cyan);">ENROLLMENT</h3>
+                <h3 style="color: var(--cyan); text-shadow: 0 0 8px var(--cyan);">REGISTRATION</h3>
 
                 <form id="registerForm" action="register_handler.php" method="POST" onsubmit="return validateForm(event)">
                     
