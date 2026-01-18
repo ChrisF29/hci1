@@ -25,7 +25,7 @@
         <div class="banner" style="border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 240, 240, 0.3);">
             <div class="banner-text">
                 <h2 style="color: var(--cyan);">NEW PLAYER?</h2>
-                <p>JOIN OTHER PLAYERS NOW.</p>
+                <p>JOIN THE SECTOR NOW.</p>
             </div>
         </div>
 
@@ -65,6 +65,10 @@
                         <li id="num"><i class="fa-solid fa-circle"></i> Contains Number</li>
                         <li id="spec"><i class="fa-solid fa-circle"></i> Special Symbol</li>
                     </ul>
+
+                    <div class="strength-container" id="strengthContainer">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
 
                     <button type="submit" name="register_btn" style="background-color: var(--cyan);">INITIALIZE ACCOUNT</button>
                 </form>

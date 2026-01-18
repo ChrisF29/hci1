@@ -1,8 +1,4 @@
-<?php if(isset($_GET['error']) && $_GET['error'] == '1'): ?>
-    <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold; animation: contentSlideUp 0.3s ease;">
-        <i class="fa-solid fa-triangle-exclamation"></i> INVALID CREDENTIALS OR SYSTEM TIMEOUT
-    </div>
-<?php endif; ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,11 +34,17 @@
             <div class="login-card">
                 <h3>ACCESS PORTAL</h3>
 
-                <form id="loginForm" action="login_handler.php" method="POST" onsubmit="return validateForm(event)">
+                <form id="loginForm" action="login_handler.php" method="POST">
                     
                     <?php if(isset($_GET['error'])): ?>
-                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold;">
-                            INVALID CREDENTIALS OR SYSTEM TIMEOUT
+                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold; animation: contentSlideUp 0.3s ease;">
+                             <i class="fa-solid fa-triangle-exclamation"></i> INVALID CREDENTIALS OR SYSTEM TIMEOUT
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if(isset($_GET['success'])): ?>
+                        <div class="success-msg" style="color: var(--green); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold;">
+                             REGISTRATION COMPLETE. LOGIN NOW.
                         </div>
                     <?php endif; ?>
 
@@ -53,19 +55,8 @@
 
                     <div class="input-group">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" name="password" id="password" placeholder="PASSWORD" oninput="checkStrength(this.value)" required>
+                        <input type="password" name="password" id="password" placeholder="PASSWORD" required>
                         <i class="fa-solid fa-eye toggle-password" onclick="togglePass()"></i>
-                    </div>
-
-                    <ul class="requirements-list" id="reqList">
-                        <li id="len"><i class="fa-solid fa-circle"></i> 8+ Characters</li>
-                        <li id="up"><i class="fa-solid fa-circle"></i> Uppercase Letter</li>
-                        <li id="num"><i class="fa-solid fa-circle"></i> Contains Number</li>
-                        <li id="spec"><i class="fa-solid fa-circle"></i> Special Symbol (@$!%)</li>
-                    </ul>
-
-                    <div class="strength-container" id="strengthContainer">
-                        <div class="strength-bar" id="strengthBar"></div>
                     </div>
 
                     <button type="submit" name="login_btn">LOGIN START</button>
