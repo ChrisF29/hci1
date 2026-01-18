@@ -17,6 +17,68 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.user-display {
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.logout-link {
+    color: var(--red) !important;
+    font-weight: bold;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dash-card {
+    text-align: center;
+}
+
+.game-preview {
+    font-size: 50px;
+    color: var(--cyan);
+    margin: 20px 0;
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+.play-btn {
+    background-color: var(--green);
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px var(--green);
+}
+
+.stats-list {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-value {
+    color: var(--orange);
+    font-weight: bold;
+}
 /* Light Mode Variables */
 body.light-mode {
     --bg-dark: #f4f4f9;
