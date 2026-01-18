@@ -82,17 +82,34 @@ function varColor(name) {
 }
 
 function validateForm(e) {
-    e.preventDefault();
+    // 1. Identify which form is being submitted
+    const isRegisterPage = document.getElementById('registerForm') !== null;
     const pass = document.getElementById('password').value;
-    
-    // Final validation check
-    const isValid = pass.length >= 8 && /[A-Z]/.test(pass) && /[0-9]/.test(pass) && /[@$!%*?&]/.test(pass);
 
-    if (!isValid) {
-        alert("ACCESS DENIED: Password requirements not met.");
-        return false;
+    if (isRegisterPage) {
+        // 2. Full security check for Registration
+        const isValid = pass.length >= 8 && 
+                        /[A-Z]/.test(pass) && 
+                        /[0-9]/.test(pass) && 
+                        /[@$!%*?&]/.test(pass);
+
+        if (!isValid) {
+            e.preventDefault(); // Stop submission only if invalid
+            alert("ACCESS DENIED: Password requirements not met.");
+            return false;
+        }
+        
+        // If valid, we do NOT call e.preventDefault(). 
+        // The form will now proceed to register_handler.php
+        alert("PLAYER VERIFIED. INITIALIZING SECTOR IDENTITY...");
+    } else {
+        // 3. Simple check for Login (just ensure not empty)
+        if (pass.length === 0) {
+            e.preventDefault();
+            return false;
+        }
+        // Proceed to login_handler.php
     }
-
-    alert("PLAYER VERIFIED. WELCOME TO TETRONIX.");
-    return false;
+    
+    return true; 
 }
