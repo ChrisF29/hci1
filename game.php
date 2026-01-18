@@ -13,40 +13,62 @@ if (!isset($_SESSION['player_id'])) {
     <title>Tetronix | Active Session</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body class="game-body">
+<body>
+
     <header>
         <h1>TETRONIX</h1>
         <nav>
-            <span class="user-display">PILOT: <?php echo $_SESSION['username']; ?></span>
-            <a href="dashboard.php">DASHBOARD</a>
+            <span class="user-display"><i class="fa-solid fa-user-astronaut"></i> PILOT: <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+            <a href="dashboard.php" style="color: var(--orange);">EXIT TO DASHBOARD</a>
         </nav>
     </header>
 
-    <div class="game-container">
-        <div class="side-panel">
-            <div class="stat-card">
-                <h4>SCORE</h4>
-                <div id="score">000000</div>
+    <div class="container">
+        <div class="banner dash-banner" style="height: auto; padding: 15px; margin-bottom: 20px;">
+            <div class="banner-text" style="text-align: center; width: 100%;">
+                <h2 style="font-size: 18px; color: var(--green);">SYSTEM ACTIVE</h2>
             </div>
-            <div class="stat-card">
-                <h4>LINES</h4>
-                <div id="lines">0</div>
-            </div>
-            <button id="start-btn">START ENGINE</button>
         </div>
 
-        <canvas id="tetris" width="240" height="400"></canvas>
+        <div class="game-wrapper">
+            <div class="login-card game-card side-panel">
+                <h3 style="color: var(--cyan); font-size: 16px;">DATA</h3>
+                
+                <div class="stat-box">
+                    <span class="label">SCORE</span>
+                    <div id="score" class="value">0</div>
+                </div>
 
-        <div class="side-panel">
-            <div class="stat-card">
-                <h4>NEXT</h4>
-                <canvas id="next" width="80" height="80"></canvas>
+                <div class="stat-box">
+                    <span class="label">LINES</span>
+                    <div id="lines" class="value">0</div>
+                </div>
+                
+                <div class="stat-box">
+                    <span class="label">LEVEL</span>
+                    <div id="level" class="value">1</div>
+                </div>
             </div>
-            <div class="controls-hint">
-                <p><i class="fa-solid fa-arrow-left"></i> <i class="fa-solid fa-arrow-right"></i> MOVE</p>
-                <p><i class="fa-solid fa-arrow-up"></i> ROTATE</p>
-                <p><i class="fa-solid fa-arrow-down"></i> SOFT DROP</p>
+
+            <div class="canvas-container">
+                <canvas id="tetris" width="240" height="400"></canvas>
+                <div id="overlay" class="game-overlay">
+                    <h2 id="overlay-title">READY?</h2>
+                    <button id="start-btn" class="play-btn">INITIATE</button>
+                </div>
+            </div>
+
+            <div class="login-card game-card side-panel">
+                <h3 style="color: var(--purple); font-size: 16px;">NEXT</h3>
+                <canvas id="next" width="100" height="100" style="margin-bottom: 20px;"></canvas>
+                
+                <div class="controls-hint">
+                    <div class="control-row"><i class="fa-solid fa-arrow-left"></i><span>MOVE</span><i class="fa-solid fa-arrow-right"></i></div>
+                    <div class="control-row"><i class="fa-solid fa-arrow-up"></i><span>ROTATE</span></div>
+                    <div class="control-row"><i class="fa-solid fa-arrow-down"></i><span>DROP</span></div>
+                </div>
             </div>
         </div>
     </div>

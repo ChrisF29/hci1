@@ -1,13 +1,31 @@
 <?php
 session_start();
+require 'db_config.php'; // You need this to talk to the database
 
-// Security Check: If no session exists, redirect to login portal
+// Security Check
 if (!isset($_SESSION['player_id'])) {
     header("Location: index.php");
     exit();
 }
 
+$player_id = $_SESSION['player_id'];
 $username = $_SESSION['username'];
+
+// --- NEW DATA FETCHING LOGIC ---
+// Fetch the latest stats for this specific player
+$query = $conn->prepare("SELECT high_score FROM players WHERE id = ?");
+$query->bind_param("i", $player_id);
+$query->execute();
+$result = $query->get_result();
+$player_data = $result->fetch_assoc();
+
+$high_score = $player_data['high_score'] ?? 0;
+
+// Simple Rank Logic based on score
+$rank = "RECRUIT";
+if ($high_score > 1000) $rank = "PILOT";
+if ($high_score > 5000) $rank = "ELITE";
+if ($high_score > 10000) $rank = "LEGEND";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,15 +69,15 @@ $username = $_SESSION['username'];
                 <div class="stats-list">
                     <div class="stat-item">
                         <span>HIGH SCORE:</span>
-                        <span class="stat-value">000,000</span>
+                        <span class="stat-value"><?php echo number_format($high_score); ?></span>
                     </div>
                     <div class="stat-item">
                         <span>RANK:</span>
-                        <span class="stat-value">RECRUIT</span>
+                        <span class="stat-value"><?php echo $rank; ?></span>
                     </div>
                     <div class="stat-item">
-                        <span>LINES CLEARED:</span>
-                        <span class="stat-value">0</span>
+                        <span>STATUS:</span>
+                        <span class="stat-value" style="color: var(--green);">ONLINE</span>
                     </div>
                 </div>
             </div>
