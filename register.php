@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <header>
         <h1>TETRONIX</h1>
         <nav>
-            <a href="index.html">LOGIN</a>
+            <a href="index.php">LOGIN</a>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -32,20 +33,30 @@
             <div class="login-card" style="border-color: var(--cyan); box-shadow: 12px 12px 0px rgba(0, 240, 240, 0.15);">
                 <h3 style="color: var(--cyan); text-shadow: 0 0 8px var(--cyan);">ENROLLMENT</h3>
 
-                <form id="registerForm" onsubmit="return handleRegister(event)">
+                <form id="registerForm" action="register_handler.php" method="POST" onsubmit="return validateForm(event)">
+                    
+                    <?php if(isset($_GET['error'])): ?>
+                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 11px; font-weight: bold;">
+                            <?php 
+                                if($_GET['error'] == 'exists') echo "TAG OR EMAIL ALREADY REGISTERED";
+                                else if($_GET['error'] == 'stmt') echo "SYSTEM FAILURE: TRY AGAIN";
+                            ?>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="input-group">
                         <i class="fa-solid fa-id-badge"></i>
-                        <input type="text" id="username" placeholder="PLAYER TAG (USERNAME)" required>
+                        <input type="text" name="username" id="username" placeholder="PLAYER TAG (USERNAME)" required>
                     </div>
 
                     <div class="input-group">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" id="email" placeholder="CONTACT EMAIL" required>
+                        <input type="email" name="email" id="email" placeholder="CONTACT EMAIL" required>
                     </div>
 
                     <div class="input-group">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" placeholder="SECURE PASSWORD" oninput="checkStrength(this.value)" required>
+                        <input type="password" name="password" id="password" placeholder="SECURE PASSWORD" oninput="checkStrength(this.value)" required>
                     </div>
 
                     <ul class="requirements-list" id="reqList">
@@ -55,7 +66,7 @@
                         <li id="spec"><i class="fa-solid fa-circle"></i> Special Symbol</li>
                     </ul>
 
-                    <button type="submit" style="background-color: var(--cyan);">INITIALIZE ACCOUNT</button>
+                    <button type="submit" name="register_btn" style="background-color: var(--cyan);">INITIALIZE ACCOUNT</button>
                 </form>
             </div>
         </div>

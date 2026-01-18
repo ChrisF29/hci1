@@ -19,7 +19,7 @@
         <h1>TETRONIX</h1>
         <nav>
             <a href="#">LEADERBOARD</a>
-            <a href="register.html" style="margin-left: 20px; color: var(--orange);">REGISTER</a>
+            <a href="register.php" style="margin-left: 20px; color: var(--orange);">REGISTER</a>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -71,7 +71,7 @@
                     <button type="submit" name="login_btn">LOGIN START</button>
                     
                     <p style="text-align: center; font-size: 11px; margin-top: 20px; color: var(--text-alt);">
-                        NO ACCOUNT DETECTED? <a href="register.html" style="color: var(--cyan); text-decoration: none;">ENROLL HERE</a>
+                        NO ACCOUNT DETECTED? <a href="register.php" style="color: var(--cyan); text-decoration: none;">ENROLL HERE</a>
                     </p>
                 </form>
             </div>
