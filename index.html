@@ -1,3 +1,11 @@
+<?php
+session_start();
+// If user is already logged in, redirect to game/dashboard
+if(isset($_SESSION['player_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +22,7 @@
         <h1>TETRONIX</h1>
         <nav>
             <a href="#">LEADERBOARD</a>
+            <a href="register.html" style="margin-left: 20px; color: var(--orange);">REGISTER</a>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -32,15 +41,22 @@
             <div class="login-card">
                 <h3>ACCESS PORTAL</h3>
 
-                <form id="loginForm" onsubmit="return validateForm(event)">
+                <form id="loginForm" action="login_handler.php" method="POST" onsubmit="return validateForm(event)">
+                    
+                    <?php if(isset($_GET['error'])): ?>
+                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold;">
+                            INVALID CREDENTIALS OR SYSTEM TIMEOUT
+                        </div>
+                    <?php endif; ?>
+
                     <div class="input-group">
                         <i class="fa-solid fa-user-astronaut"></i>
-                        <input type="email" id="email" placeholder="PLAYER EMAIL" required>
+                        <input type="email" name="email" id="email" placeholder="PLAYER EMAIL" required>
                     </div>
 
                     <div class="input-group">
                         <i class="fa-solid fa-key"></i>
-                        <input type="password" id="password" placeholder="PASSWORD" oninput="checkStrength(this.value)" required>
+                        <input type="password" name="password" id="password" placeholder="PASSWORD" oninput="checkStrength(this.value)" required>
                         <i class="fa-solid fa-eye toggle-password" onclick="togglePass()"></i>
                     </div>
 
@@ -55,7 +71,11 @@
                         <div class="strength-bar" id="strengthBar"></div>
                     </div>
 
-                    <button type="submit">LOGIN START</button>
+                    <button type="submit" name="login_btn">LOGIN START</button>
+                    
+                    <p style="text-align: center; font-size: 11px; margin-top: 20px; color: var(--text-alt);">
+                        NO ACCOUNT DETECTED? <a href="register.html" style="color: var(--cyan); text-decoration: none;">ENROLL HERE</a>
+                    </p>
                 </form>
             </div>
         </div>
