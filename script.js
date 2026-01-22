@@ -101,7 +101,7 @@ function validateForm(e) {
         
         // If valid, we do NOT call e.preventDefault(). 
         // The form will now proceed to register_handler.php
-        alert("PLAYER VERIFIED. INITIALIZING SECTOR IDENTITY...");
+        alert("ACCOUNT REGISTERED. REDIRECTING TO LOGIN...");
     } else {
         // 3. Simple check for Login (just ensure not empty)
         if (pass.length === 0) {

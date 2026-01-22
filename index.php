@@ -62,7 +62,7 @@
                     <button type="submit" name="login_btn">LOGIN START</button>
                     
                     <p style="text-align: center; font-size: 11px; margin-top: 20px; color: var(--text-alt);">
-                        NO ACCOUNT DETECTED? <a href="register.php" style="color: var(--cyan); text-decoration: none;">ENROLL HERE</a>
+                        NO ACCOUNT YET? <a href="register.php" style="color: var(--cyan); text-decoration: none;">REGISTER HERE</a>
                     </p>
                 </form>
             </div>
