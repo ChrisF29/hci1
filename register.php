@@ -22,21 +22,22 @@
     </header>
 
     <div class="container">
-        <div class="banner" style="border-color: var(--cyan); box-shadow: 0 0 20px rgba(0, 240, 240, 0.3);">
+        <div class="banner register-banner">
             <div class="banner-text">
-                <h2 style="color: var(--cyan);">NEW PLAYER?</h2>
+                <h2>NEW PLAYER?</h2>
                 <p>JOIN THE SECTOR NOW.</p>
             </div>
         </div>
 
         <div class="login-section">
-            <div class="login-card" style="border-color: var(--blue); box-shadow: 12px 12px 0px rgba(0, 65, 65, 0.15);">
-                <h3 style="color: var(--blue); text-shadow: 0 0 8px var(--cyan);">REGISTRATION</h3>
+            <div class="login-card register-card">
+                <h3>REGISTRATION</h3>
 
                 <form id="registerForm" action="register_handler.php" method="POST" onsubmit="return validateForm(event)">
                     
                     <?php if(isset($_GET['error'])): ?>
-                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 11px; font-weight: bold;">
+                        <div class="error-msg">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
                             <?php 
                                 if($_GET['error'] == 'exists') echo "TAG OR EMAIL ALREADY REGISTERED";
                                 else if($_GET['error'] == 'stmt') echo "SYSTEM FAILURE: TRY AGAIN";
@@ -70,7 +71,7 @@
                         <div class="strength-bar" id="strengthBar"></div>
                     </div>
 
-                    <button type="submit" name="register_btn" style="background-color: var(--cyan);">INITIALIZE ACCOUNT</button>
+                    <button type="submit" name="register_btn" class="register-btn">INITIALIZE ACCOUNT</button>
                 </form>
             </div>
         </div>

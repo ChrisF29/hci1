@@ -15,7 +15,7 @@
         <h1>TETRONIX</h1>
         <nav>
             <a href="#">LEADERBOARD</a>
-            <a href="register.php" style="margin-left: 20px; color: var(--orange);">REGISTER</a>
+            <a href="register.php" class="nav-register">REGISTER</a>
             <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
                 <i class="fa-solid fa-moon" id="themeIcon"></i>
             </button>
@@ -37,14 +37,14 @@
                 <form id="loginForm" action="login_handler.php" method="POST">
                     
                     <?php if(isset($_GET['error'])): ?>
-                        <div class="error-msg" style="color: var(--red); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold; animation: contentSlideUp 0.3s ease;">
+                        <div class="error-msg">
                              <i class="fa-solid fa-triangle-exclamation"></i> INVALID CREDENTIALS OR SYSTEM TIMEOUT
                         </div>
                     <?php endif; ?>
 
                     <?php if(isset($_GET['success'])): ?>
-                        <div class="success-msg" style="color: var(--green); text-align: center; margin-bottom: 15px; font-size: 12px; font-weight: bold;">
-                             REGISTRATION COMPLETE. LOGIN NOW.
+                        <div class="success-msg">
+                             <i class="fa-solid fa-circle-check"></i> REGISTRATION COMPLETE. LOGIN NOW.
                         </div>
                     <?php endif; ?>
 

@@ -20,21 +20,24 @@ if (!isset($_SESSION['player_id'])) {
     <header>
         <h1>TETRONIX</h1>
         <nav>
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
             <span class="user-display"><i class="fa-solid fa-user-astronaut"></i> PILOT: <?php echo htmlspecialchars($_SESSION['username']); ?></span>
-            <a href="dashboard.php" style="color: var(--orange);">EXIT TO DASHBOARD</a>
+            <a href="dashboard.php" class="exit-link"><i class="fa-solid fa-arrow-left"></i> EXIT TO DASHBOARD</a>
         </nav>
     </header>
 
     <div class="container">
-        <div class="banner dash-banner" style="height: auto; padding: 15px; margin-bottom: 20px;">
-            <div class="banner-text" style="text-align: center; width: 100%;">
-                <h2 style="font-size: 18px; color: var(--green);">SYSTEM ACTIVE</h2>
+        <div class="banner dash-banner game-banner">
+            <div class="banner-text">
+                <h2>SYSTEM ACTIVE</h2>
             </div>
         </div>
 
         <div class="game-wrapper">
-            <div class="login-card game-card side-panel">
-                <h3 style="color: var(--cyan); font-size: 16px;">DATA</h3>
+            <div class="login-card game-card side-panel data-panel">
+                <h3>DATA</h3>
                 
                 <div class="stat-box">
                     <span class="label">SCORE</span>
@@ -60,9 +63,9 @@ if (!isset($_SESSION['player_id'])) {
                 </div>
             </div>
 
-            <div class="login-card game-card side-panel">
-                <h3 style="color: var(--purple); font-size: 16px;">NEXT</h3>
-                <canvas id="next" width="100" height="100" style="margin-bottom: 20px;"></canvas>
+            <div class="login-card game-card side-panel next-panel">
+                <h3>NEXT</h3>
+                <canvas id="next" width="100" height="100"></canvas>
                 
                 <div class="controls-hint">
                     <div class="control-row"><i class="fa-solid fa-arrow-left"></i><span>MOVE</span><i class="fa-solid fa-arrow-right"></i></div>
@@ -73,6 +76,7 @@ if (!isset($_SESSION['player_id'])) {
         </div>
     </div>
 
+    <script src="script.js"></script>
     <script src="tetris_engine.js"></script>
 </body>
 </html>

@@ -42,6 +42,9 @@ if ($high_score > 10000) $rank = "LEGEND";
     <header>
         <h1>TETRONIX</h1>
         <nav>
+            <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
             <span class="user-display"><i class="fa-solid fa-user-astronaut"></i> <?php echo htmlspecialchars($username); ?></span>
             <a href="logout.php" class="logout-link"><i class="fa-solid fa-power-off"></i> LOGOUT</a>
         </nav>
@@ -77,7 +80,7 @@ if ($high_score > 10000) $rank = "LEGEND";
                     </div>
                     <div class="stat-item">
                         <span>STATUS:</span>
-                        <span class="stat-value" style="color: var(--green);">ONLINE</span>
+                        <span class="stat-value status-online">ONLINE</span>
                     </div>
                 </div>
             </div>
