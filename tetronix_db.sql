@@ -24,20 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leaderboard`
---
-
-CREATE TABLE `leaderboard` (
-  `score_id` int(11) NOT NULL,
-  `player_id` int(11) DEFAULT NULL,
-  `high_score` int(11) DEFAULT 0,
-  `lines_cleared` int(11) DEFAULT 0,
-  `matches_played` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `players`
 --
 
@@ -60,17 +46,6 @@ INSERT INTO `players` (`id`, `username`, `email`, `password_hash`, `theme_prefer
 (1, 'Slrpeee', 'sampleemail@gmail.com', '$2y$10$AB6yT5ke25vV.jwDN.cii.3cSzScdl/JoAi.Qh6w37c1s/VYVg.ii', 'dark', '2026-01-18 13:00:04', NULL, 4900);
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `leaderboard`
---
-ALTER TABLE `leaderboard`
-  ADD PRIMARY KEY (`score_id`),
-  ADD KEY `player_id` (`player_id`);
-
---
 -- Indexes for table `players`
 --
 ALTER TABLE `players`
@@ -83,26 +58,10 @@ ALTER TABLE `players`
 --
 
 --
--- AUTO_INCREMENT for table `leaderboard`
---
-ALTER TABLE `leaderboard`
-  MODIFY `score_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `leaderboard`
---
-ALTER TABLE `leaderboard`
-  ADD CONSTRAINT `leaderboard_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
